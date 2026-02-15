@@ -20,16 +20,9 @@ export const useAuthStore = create((set, get) => ({
     set({ token, isAuthenticated: true })
   },
   updateProfile: async (payload) => {
-    // Assuming API endpoint exists or simulating it
-    // If real API:
-    // const { data } = await api.put('/users/me', payload)
-    // set({ user: data.user })
-    // localStorage.setItem('ih_user', JSON.stringify(data.user))
-    
-    // For now, since I don't know the API exactly, I'll wrap it in try/catch or assume it works if endpoint exists.
-    // Profile.jsx calls this.
+   
     try {
-        const { data } = await api.put('/users/profile', payload) // Guessing endpoint
+        const { data } = await api.put('/users/profile', payload) 
         set({ user: data.user })
         localStorage.setItem('ih_user', JSON.stringify(data.user))
         return data
